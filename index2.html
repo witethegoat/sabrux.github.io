@@ -5,11 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Login to Roblox</title>
 <style>
+  :root {
+    --bg-dark: #0f0f0f;
+    --bg-mid: #1b1b1b;
+    --bg-light: #232527;
+    --border: #2c2c2c;
+    --text: #e6e6e6;
+    --text-muted: #bfbfbf;
+    --accent: #2563eb;
+  }
+
   body {
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #111;
-    color: #fff;
+    background-color: var(--bg-dark);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 
   /* ======= TOP BAR ======= */
@@ -17,9 +30,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #0f0f0f;
+    background-color: var(--bg-mid);
     padding: 10px 16px;
-    border-bottom: 1px solid #1c1c1c;
+    border-bottom: 1px solid var(--border);
   }
 
   .top-left img {
@@ -34,7 +47,7 @@
   }
 
   .btn-signup {
-    background-color: #2563eb;
+    background-color: var(--accent);
     color: white;
     font-weight: 600;
     border: none;
@@ -44,51 +57,56 @@
     cursor: pointer;
   }
 
-  .btn-login-icon {
+  .search-icon {
     width: 22px;
     height: 22px;
     opacity: 0.8;
     cursor: pointer;
+    filter: invert(1);
   }
 
   /* ======= NAV BAR ======= */
   .nav-tabs {
     display: flex;
     justify-content: space-around;
-    background-color: #0f0f0f;
-    border-bottom: 1px solid #1c1c1c;
+    align-items: center;
+    background-color: var(--bg-mid);
+    border-bottom: 1px solid var(--border);
     padding: 10px 0;
   }
 
   .nav-tabs div {
-    color: #ddd;
+    color: var(--text-muted);
     font-size: 15px;
     cursor: pointer;
   }
 
   .nav-tabs div:hover {
-    color: #fff;
+    color: var(--text);
   }
 
-  /* ======= LOGIN BOX ======= */
-  .login-container {
+  /* ======= LOGIN SECTION ======= */
+  .main {
+    flex-grow: 1;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    background-color: var(--bg-dark);
+    padding: 20px;
   }
 
   .login-box {
-    background-color: #1c1e1f;
+    background-color: var(--bg-light);
     padding: 25px 20px;
     border-radius: 10px;
-    width: 90%;
+    width: 100%;
     max-width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
   }
 
   .login-box h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-size: 22px;
     font-weight: 700;
   }
@@ -97,10 +115,10 @@
     width: 100%;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid #2c2f31;
+    border: 1px solid var(--border);
     margin-bottom: 12px;
-    background-color: #2b2e30;
-    color: #fff;
+    background-color: #2a2d2f;
+    color: var(--text);
     font-size: 15px;
   }
 
@@ -111,9 +129,9 @@
   .btn-login {
     width: 100%;
     padding: 12px;
-    background-color: #2a2d2f;
-    color: #ccc;
-    border: 1px solid #3a3d3f;
+    background-color: var(--bg-mid);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
     border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
@@ -121,32 +139,33 @@
   }
 
   .btn-login:hover {
-    background-color: #333638;
+    background-color: #2b2b2b;
+    color: var(--text);
   }
 
   .forgot {
     text-align: center;
-    margin: 16px 0;
-    color: #ccc;
+    margin: 18px 0;
+    color: var(--text-muted);
     font-size: 14px;
     cursor: pointer;
   }
 
   .forgot:hover {
-    color: #fff;
+    color: var(--text);
   }
 
   hr {
     border: none;
-    border-top: 1px solid #2a2a2a;
-    margin: 20px 0;
+    border-top: 1px solid var(--border);
+    margin: 22px 0;
   }
 
   .alt-btn {
     width: 100%;
     padding: 12px;
-    background-color: #2d2f31;
-    color: #fff;
+    background-color: #2e3032;
+    color: var(--text);
     border: none;
     border-radius: 8px;
     font-size: 15px;
@@ -156,18 +175,18 @@
   }
 
   .alt-btn:hover {
-    background-color: #3a3d3f;
+    background-color: #383a3d;
   }
 
   .signup-text {
     text-align: center;
-    color: #bbb;
-    margin-top: 10px;
+    color: var(--text-muted);
+    margin-top: 14px;
     font-size: 14px;
   }
 
   .signup-text a {
-    color: #2563eb;
+    color: var(--accent);
     text-decoration: none;
     font-weight: bold;
   }
@@ -182,11 +201,11 @@
 <!-- ===== TOP BAR ===== -->
 <div class="top-bar">
   <div class="top-left">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Roblox_Logo_2022.svg" alt="Roblox Logo">
+    <img src="./roblox.png" alt="Roblox Logo">
   </div>
   <div class="top-right">
     <button class="btn-signup">Sign Up</button>
-    <img class="btn-login-icon" src="https://cdn-icons-png.flaticon.com/512/54/54481.png" alt="Search Icon">
+    <img class="search-icon" src="https://cdn-icons-png.flaticon.com/512/54/54481.png" alt="Search Icon">
   </div>
 </div>
 
@@ -199,7 +218,7 @@
 </div>
 
 <!-- ===== LOGIN SECTION ===== -->
-<div class="login-container">
+<div class="main">
   <div class="login-box">
     <h2>Login to Roblox</h2>
 
