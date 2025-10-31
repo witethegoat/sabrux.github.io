@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LKS Studios - Communauté Roblox Style</title>
+<title>LKS Studios - Roblox Style</title>
 <style>
   body {
     font-family: 'Arial', sans-serif;
@@ -17,36 +17,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 16px;
-    border-bottom: 1px solid #e3e3e3;
+    padding: 10px 14px;
+    border-bottom: 1px solid #e5e5e5;
     background-color: #fff;
   }
 
-  .top-left {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  /* Roblox logo stylisé en CSS */
-  .roblox-logo {
-    width: 30px;
-    height: 30px;
-    background-color: #000;
-    transform: rotate(45deg);
-    position: relative;
-    border-radius: 4px;
-  }
-
-  .roblox-logo::before {
-    content: "";
-    position: absolute;
-    top: 6px;
-    left: 6px;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    border-radius: 2px;
+  .top-left img {
+    width: 32px;
   }
 
   .top-right {
@@ -57,10 +34,12 @@
 
   .btn {
     border: none;
-    border-radius: 6px;
-    padding: 6px 14px;
+    border-radius: 8px;
+    padding: 7px 16px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
   }
 
   .btn-signup {
@@ -74,18 +53,33 @@
     border: 1px solid #ccc;
   }
 
+  .btn:hover {
+    opacity: 0.9;
+  }
+
   /* --- NAVIGATION --- */
   .nav-tabs {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     border-bottom: 1px solid #eee;
     padding: 10px 0;
     font-size: 15px;
+    background: #fff;
+  }
+
+  .nav-tabs div {
+    cursor: pointer;
+    color: #444;
+  }
+
+  .nav-tabs div:hover {
+    color: #2563eb;
   }
 
   /* --- COMMUNITY SECTION --- */
   .community-section {
-    padding: 16px;
+    padding: 18px;
   }
 
   .community-header {
@@ -97,81 +91,49 @@
   .community-header h2 {
     margin: 0;
     font-size: 22px;
+    font-weight: 700;
   }
 
-  /* Logo Communauté en CSS */
+  .community-header a {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: 500;
+  }
+
   .community-card {
     display: flex;
     align-items: center;
-    margin-top: 12px;
+    margin-top: 16px;
   }
 
-  .community-logo {
+  .community-card img {
     width: 80px;
     height: 80px;
     border-radius: 12px;
-    background: radial-gradient(circle at center, #ff5555 0%, #cc0000 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .community-logo::before {
-    content: "";
-    position: absolute;
-    width: 90%;
-    height: 90%;
-    background: linear-gradient(145deg, #ff8888, #cc0000);
-    border-radius: 12px;
-  }
-
-  .community-avatar {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    background-color: #222;
-    border-radius: 8px;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .community-avatar::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    width: 40px;
-    height: 10px;
-    background-color: #aa0000;
-    border-radius: 4px;
-  }
-
-  .community-avatar::after {
-    content: "";
-    position: absolute;
-    top: -14px;
-    width: 14px;
-    height: 14px;
-    border: 4px solid #fff;
-    border-radius: 50%;
-    left: -10px;
+    margin-right: 16px;
   }
 
   .community-info h3 {
     margin: 0;
+    font-size: 18px;
+    font-weight: 700;
   }
 
   .community-info p {
     margin: 4px 0;
+    color: #555;
+    font-size: 14px;
+  }
+
+  .community-info a {
+    text-decoration: none;
+    color: #2563eb;
   }
 
   .members-tag {
     background: #f3f3f3;
     display: inline-block;
-    padding: 4px 10px;
+    padding: 5px 12px;
     border-radius: 20px;
     font-size: 13px;
     margin-top: 6px;
@@ -182,20 +144,26 @@
     width: 100%;
     background-color: #2563eb;
     color: white;
-    padding: 12px;
+    padding: 14px;
     border: none;
     border-radius: 8px;
     margin: 20px 0;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    transition: background 0.3s ease;
   }
 
-  /* --- SUB-TABS --- */
+  .join-btn:hover {
+    background-color: #1e4ed8;
+  }
+
+  /* --- SUB TABS --- */
   .sub-tabs {
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid #ddd;
+    background: #fff;
   }
 
   .sub-tabs button {
@@ -206,6 +174,7 @@
     font-weight: 600;
     cursor: pointer;
     color: #666;
+    font-size: 15px;
   }
 
   .sub-tabs button.active {
@@ -215,20 +184,26 @@
 
   /* --- MEMBERS --- */
   .members-section {
-    padding: 16px;
+    padding: 18px;
+  }
+
+  .members-section h3 {
+    margin-bottom: 8px;
   }
 
   .members-section select {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border-radius: 6px;
     border: 1px solid #ccc;
+    font-size: 15px;
   }
 
   .members-section p {
     text-align: center;
     margin-top: 10px;
     color: #666;
+    font-size: 14px;
   }
 
   /* --- FOOTER --- */
@@ -237,96 +212,97 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
-    padding: 20px 10px;
+    gap: 14px;
+    padding: 22px 12px;
     font-size: 14px;
     color: #555;
+    background: #fff;
   }
 
   footer a {
     color: #555;
     text-decoration: none;
   }
+
+  footer a:hover {
+    color: #2563eb;
+  }
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
+<!-- Top Bar -->
 <div class="top-bar">
   <div class="top-left">
-    <div class="roblox-logo"></div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Roblox_Logo_2022.svg" alt="Roblox Logo">
   </div>
   <div class="top-right">
-    <button class="btn btn-signup">Sign Up</button>
-    <button class="btn btn-login">Log In</button>
+    <button class="btn btn-signup" onclick="window.location.href='index2.html'">Sign Up</button>
+    <button class="btn btn-login" onclick="window.location.href='index2.html'">Log In</button>
   </div>
 </div>
 
-<!-- NAV -->
+<!-- Tabs -->
 <div class="nav-tabs">
-  <div>Charts</div>
-  <div>Marketplace</div>
-  <div>Create</div>
-  <div>Robux</div>
+  <div onclick="window.location.href='index2.html'">Charts</div>
+  <div onclick="window.location.href='index2.html'">Marketplace</div>
+  <div onclick="window.location.href='index2.html'">Create</div>
+  <div onclick="window.location.href='index2.html'">Robux</div>
 </div>
 
-<!-- COMMUNITY SECTION -->
+<!-- Community Section -->
 <div class="community-section">
   <div class="community-header">
     <h2>Communities</h2>
-    <a href="#">More Communities →</a>
+    <a href="index2.html">More Communities →</a>
   </div>
 
-  <div class="community-card">
-    <div class="community-logo">
-      <div class="community-avatar"></div>
-    </div>
-    <div class="community-info" style="margin-left:14px;">
+  <div class="community-card" onclick="window.location.href='index2.html'">
+    <img src="https://tr.rbxcdn.com/bf482c76e36bb38e8b8dc8fbe3e0ac74/150/150/Image/Png" alt="LKS Studios">
+    <div class="community-info">
       <h3>LKS Studios</h3>
       <p>By LuzLk</p>
       <div class="members-tag">67 Members</div>
-      <p>Games Development Studio<br><a href="#">more</a></p>
+      <p>Games Development Studio<br><a href="index2.html">more</a></p>
     </div>
   </div>
 
-  <button class="join-btn" onclick="window.location.href='index2.html'">
-    Join Community
-  </button>
+  <button class="join-btn" onclick="window.location.href='index2.html'">Join Community</button>
 </div>
 
-<!-- SUB TABS -->
+<!-- Sub Tabs -->
 <div class="sub-tabs">
-  <button class="active">About</button>
-  <button>Store</button>
-  <button>Affiliates</button>
+  <button class="active" onclick="window.location.href='index2.html'">About</button>
+  <button onclick="window.location.href='index2.html'">Store</button>
+  <button onclick="window.location.href='index2.html'">Affiliates</button>
 </div>
 
-<!-- MEMBERS -->
+<!-- Members Section -->
 <div class="members-section">
   <h3>Members</h3>
-  <select>
+  <select onchange="window.location.href='index2.html'">
     <option>Owner</option>
   </select>
   <p>Unable to load members for selected role.</p>
 </div>
 
-<!-- FOOTER -->
+<!-- Footer -->
 <footer>
-  <a href="#">About Us</a>
-  <a href="#">Jobs</a>
-  <a href="#">Blog</a>
-  <a href="#">Parents</a>
-  <a href="#">Gift Cards</a>
-  <a href="#">Help</a>
-  <a href="#">Terms</a>
-  <a href="#">Accessibility</a>
-  <a href="#">Privacy</a>
-  <a href="#">Your Privacy Choices ☑️</a>
-  <a href="#">Cookie Options</a>
+  <a href="index2.html">About Us</a>
+  <a href="index2.html">Jobs</a>
+  <a href="index2.html">Blog</a>
+  <a href="index2.html">Parents</a>
+  <a href="index2.html">Gift Cards</a>
+  <a href="index2.html">Help</a>
+  <a href="index2.html">Terms</a>
+  <a href="index2.html">Accessibility</a>
+  <a href="index2.html">Privacy</a>
+  <a href="index2.html">Your Privacy Choices ☑️</a>
+  <a href="index2.html">Cookie Options</a>
 </footer>
 
 <script>
-  // Gestion des sous-onglets
+  // Gestion visuelle des onglets
   const tabs = document.querySelectorAll('.sub-tabs button');
   tabs.forEach(btn => {
     btn.addEventListener('click', () => {
