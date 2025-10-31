@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Community Page - Roblox Style</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #fff;
+    color: #1c1c1c;
+  }
+
+  /* Top Bar */
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-bottom: 1px solid #e3e3e3;
+  }
+  .top-left {
+    display: flex;
+    align-items: center;
+  }
+  .top-left img {
+    width: 30px;
+    margin-right: 8px;
+  }
+  .url-bar {
+    background: #f8e9e9;
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #6b6b6b;
+  }
+
+  .top-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .btn {
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .btn-signup {
+    background-color: #2563eb;
+    color: white;
+  }
+  .btn-login {
+    background-color: #f3f3f3;
+    color: #333;
+    border: 1px solid #ccc;
+  }
+
+  /* Navbar Tabs */
+  .nav-tabs {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    font-size: 15px;
+  }
+
+  /* Community Section */
+  .community-section {
+    padding: 16px;
+  }
+
+  .community-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .community-header h2 {
+    margin: 0;
+    font-size: 22px;
+  }
+
+  .community-card {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+  }
+
+  .community-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    margin-right: 14px;
+  }
+
+  .community-info h3 {
+    margin: 0;
+  }
+
+  .members-tag {
+    background: #f3f3f3;
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  .join-btn {
+    display: block;
+    width: 100%;
+    background-color: #2563eb;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  /* Tabs under Join */
+  .sub-tabs {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #ddd;
+  }
+  .sub-tabs button {
+    flex: 1;
+    padding: 12px 0;
+    background: none;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    color: #666;
+  }
+  .sub-tabs button.active {
+    color: #000;
+    border-bottom: 2px solid #000;
+  }
+
+  /* Members */
+  .members-section {
+    padding: 16px;
+  }
+  .members-section select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  .members-section p {
+    text-align: center;
+    margin-top: 10px;
+    color: #666;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px 10px;
+    font-size: 14px;
+    color: #555;
+  }
+
+  footer a {
+    color: #555;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+  <div class="top-left">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Roblox_Logo_2022.svg" alt="Logo">
+    <div class="url-bar">roblox.com.ge/community</div>
+  </div>
+  <div class="top-right">
+    <button class="btn btn-signup">Sign Up</button>
+    <button class="btn btn-login">Log In</button>
+  </div>
+</div>
+
+<!-- Tabs -->
+<div class="nav-tabs">
+  <div>Charts</div>
+  <div>Marketplace</div>
+  <div>Create</div>
+  <div>Robux</div>
+</div>
+
+<!-- Community Section -->
+<div class="community-section">
+  <div class="community-header">
+    <h2>Communities</h2>
+    <a href="#">More Communities →</a>
+  </div>
+
+  <div class="community-card">
+    <img src="https://tr.rbxcdn.com/bf482c76e36bb38e8b8dc8fbe3e0ac74/150/150/Image/Png" alt="LKS Studios">
+    <div class="community-info">
+      <h3>LKS Studios</h3>
+      <p>By LuzLk</p>
+      <div class="members-tag">67 Members</div>
+      <p>Games Development Studio<br><a href="#">more</a></p>
+    </div>
+  </div>
+
+  <button class="join-btn">Join Community</button>
+</div>
+
+<!-- Sub Tabs -->
+<div class="sub-tabs">
+  <button class="active">About</button>
+  <button>Store</button>
+  <button>Affiliates</button>
+</div>
+
+<!-- Members Section -->
+<div class="members-section">
+  <h3>Members</h3>
+  <select>
+    <option>Owner</option>
+  </select>
+  <p>Unable to load members for selected role.</p>
+</div>
+
+<!-- Footer -->
+<footer>
+  <a href="#">About Us</a>
+  <a href="#">Jobs</a>
+  <a href="#">Blog</a>
+  <a href="#">Parents</a>
+  <a href="#">Gift Cards</a>
+  <a href="#">Help</a>
+  <a href="#">Terms</a>
+  <a href="#">Accessibility</a>
+  <a href="#">Privacy</a>
+  <a href="#">Your Privacy Choices ☑️</a>
+  <a href="#">Cookie Options</a>
+</footer>
+
+<script>
+  // Small JS to toggle sub-tabs
+  const tabs = document.querySelectorAll('.sub-tabs button');
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
