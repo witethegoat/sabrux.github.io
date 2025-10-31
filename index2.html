@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,23 +7,24 @@
 <style>
   body {
     margin: 0;
-    font-family: "Arial", sans-serif;
-    background-color: #181a1b;
-    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
   }
 
-  /* --- TOP BAR --- */
+  /* ======= TOP BAR ======= */
   .top-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #111;
-    padding: 10px 14px;
-    border-bottom: 1px solid #222;
+    background-color: #0f0f0f;
+    padding: 10px 16px;
+    border-bottom: 1px solid #1c1c1c;
   }
 
   .top-left img {
-    width: 32px;
+    width: 28px;
+    height: 28px;
   }
 
   .top-right {
@@ -32,27 +33,30 @@
     gap: 10px;
   }
 
-  .btn {
-    border: none;
-    border-radius: 8px;
-    padding: 7px 16px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
-  }
-
   .btn-signup {
     background-color: #2563eb;
     color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 14px;
+    cursor: pointer;
   }
 
-  /* --- NAV BAR --- */
+  .btn-login-icon {
+    width: 22px;
+    height: 22px;
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  /* ======= NAV BAR ======= */
   .nav-tabs {
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    background-color: #111;
-    border-bottom: 1px solid #222;
+    background-color: #0f0f0f;
+    border-bottom: 1px solid #1c1c1c;
     padding: 10px 0;
   }
 
@@ -63,20 +67,19 @@
   }
 
   .nav-tabs div:hover {
-    color: #2563eb;
+    color: #fff;
   }
 
-  /* --- LOGIN BOX --- */
+  /* ======= LOGIN BOX ======= */
   .login-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
-    padding: 20px;
   }
 
   .login-box {
-    background-color: #202224;
+    background-color: #1c1e1f;
     padding: 25px 20px;
     border-radius: 10px;
     width: 90%;
@@ -87,16 +90,17 @@
     text-align: center;
     margin-bottom: 20px;
     font-size: 22px;
+    font-weight: 700;
   }
 
   input {
     width: 100%;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid #333;
-    margin-bottom: 10px;
-    background-color: #2a2d2f;
-    color: white;
+    border: 1px solid #2c2f31;
+    margin-bottom: 12px;
+    background-color: #2b2e30;
+    color: #fff;
     font-size: 15px;
   }
 
@@ -107,9 +111,9 @@
   .btn-login {
     width: 100%;
     padding: 12px;
-    background-color: #2563eb;
-    color: white;
-    border: none;
+    background-color: #2a2d2f;
+    color: #ccc;
+    border: 1px solid #3a3d3f;
     border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
@@ -117,12 +121,12 @@
   }
 
   .btn-login:hover {
-    background-color: #1e4ed8;
+    background-color: #333638;
   }
 
   .forgot {
     text-align: center;
-    margin: 15px 0;
+    margin: 16px 0;
     color: #ccc;
     font-size: 14px;
     cursor: pointer;
@@ -133,8 +137,8 @@
   }
 
   hr {
-    border: 0;
-    border-top: 1px solid #333;
+    border: none;
+    border-top: 1px solid #2a2a2a;
     margin: 20px 0;
   }
 
@@ -146,7 +150,7 @@
     border: none;
     border-radius: 8px;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 10px;
     cursor: pointer;
   }
@@ -175,25 +179,26 @@
 </head>
 <body>
 
-<!-- Top Bar -->
+<!-- ===== TOP BAR ===== -->
 <div class="top-bar">
   <div class="top-left">
     <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Roblox_Logo_2022.svg" alt="Roblox Logo">
   </div>
   <div class="top-right">
-    <button class="btn btn-signup" onclick="window.location.href='index2.html'">Sign Up</button>
+    <button class="btn-signup">Sign Up</button>
+    <img class="btn-login-icon" src="https://cdn-icons-png.flaticon.com/512/54/54481.png" alt="Search Icon">
   </div>
 </div>
 
-<!-- Navigation -->
+<!-- ===== NAVIGATION ===== -->
 <div class="nav-tabs">
-  <div onclick="window.location.href='index2.html'">Charts</div>
-  <div onclick="window.location.href='index2.html'">Marketplace</div>
-  <div onclick="window.location.href='index2.html'">Create</div>
-  <div onclick="window.location.href='index2.html'">Robux</div>
+  <div>Charts</div>
+  <div>Marketplace</div>
+  <div>Create</div>
+  <div>Robux</div>
 </div>
 
-<!-- Login Section -->
+<!-- ===== LOGIN SECTION ===== -->
 <div class="login-container">
   <div class="login-box">
     <h2>Login to Roblox</h2>
@@ -201,19 +206,17 @@
     <input type="text" placeholder="Username/Email/Phone" />
     <input type="password" placeholder="Password" />
 
-    <button class="btn-login" onclick="window.location.href='index2.html'">Log In</button>
+    <button class="btn-login">Log In</button>
 
-    <div class="forgot" onclick="window.location.href='index2.html'">
-      Forgot Password or Username?
-    </div>
+    <div class="forgot">Forgot Password or Username?</div>
 
     <hr />
 
-    <button class="alt-btn" onclick="window.location.href='index2.html'">Email Me a One-Time Code</button>
-    <button class="alt-btn" onclick="window.location.href='index2.html'">Use Another Device</button>
+    <button class="alt-btn">Email Me a One-Time Code</button>
+    <button class="alt-btn">Use Another Device</button>
 
     <div class="signup-text">
-      Don’t have an account? <a href="index2.html">Sign Up</a>
+      Don’t have an account? <a href="#">Sign Up</a>
     </div>
   </div>
 </div>
